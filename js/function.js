@@ -34,15 +34,10 @@
     }
   }
 
-  function goLogin(){
-    document.getElementById('id01').style.display='block' ;
+  function logout(){
+    
   }
 
-  function exitRegis(){
-    document.getElementById('id02').style.display='none' ; 
-    goLogin();
-  }
-  
 
 
 

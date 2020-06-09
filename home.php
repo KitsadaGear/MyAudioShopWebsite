@@ -18,7 +18,6 @@
     
 </head>
 <body>
-
     <div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
@@ -49,10 +48,19 @@
             <a class = "about"href="about.php">About us</a>
             <a class = "contact" href="contact.php">Contact</a>
         </div>
-        <div class = "menubar-right">
-          <a class = "login_btn" id = "login_btn" onclick="document.getElementById('id01').style.display='block'">Login</a>  
-          <a id = "regis_btn" onclick= "document.getElementById('id02').style.display='block'">Register</a>  
-        </div>
+        <?php if (isset($_SESSION['success'])) : ?>
+          <div class = "menubar-rights">
+            <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
+            <a id = "logout_btn" onclick = "">Logout</a>
+          </div>
+        <?php else : ?>
+          <div class = "menubar-right">
+            <a class = "login_btn" id = "login_btn" onclick="document.getElementById('id01').style.display='block'">Login</a>  
+            <a id = "regis_btn" onclick= "document.getElementById('id02').style.display='block'">Register</a>  
+          </div>
+          
+        <?php endif ?>
+
      </div>
 
   <!-- The Modal -->

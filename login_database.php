@@ -23,7 +23,7 @@
 
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username;
-                $_SESSION['success'] = "Your are now logged in";
+                $_SESSION['success'] = "Success";
                 echo "<script> alert ('Your are now logged in');window.location='home.php' </script>" ; 
             }else {
                 array_push($errors, "Wrong Username or Password");
@@ -32,7 +32,7 @@
             }
         } else {
             array_push($errors, "Username & Password is required");
-            $_SESSION['error'] = "Username & Password is required";
+            $_SESSION['error'] = "Fail";
             echo "<script> alert ('Username & Password is required');window.location='home.php' </script>" ;         
         }
     }

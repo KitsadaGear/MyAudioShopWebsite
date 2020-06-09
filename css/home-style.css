@@ -45,6 +45,10 @@ body {
     margin-left: 10px; 
 }
 
+.menubar-rights  {
+  float: right;
+  margin-left: 10px; 
+}
   
 .menubar a:hover:not(.active) {
   background-color: #555;
