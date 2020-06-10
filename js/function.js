@@ -1,4 +1,4 @@
-  function showLoginPassword() {
+ function showLoginPassword() {
     var x = document.getElementById("myPassword");
     if (x.type === "password") {
       x.type = "text";
@@ -33,10 +33,9 @@
       x.type = "password";
     }
   }
+  
 
-  function logout(){
-    
-  }
+  
 
 
 

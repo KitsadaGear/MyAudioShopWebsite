@@ -50,8 +50,19 @@
         </div>
         <?php if (isset($_SESSION['success'])) : ?>
           <div class = "menubar-rights">
+            <!-- Logout Function
+            <?php
+            function runMyFunction() {
+              unset($_SESSION['success']) ;
+              echo "<script> alert ('Logout Success');window.location='home.php' </script>" ;  
+            }
+            if (isset($_GET['logout'])) {
+              runMyFunction();
+            }
+            ?>
+            -->
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
-            <a id = "logout_btn" onclick = "">Logout</a>
+            <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
           </div>
         <?php else : ?>
           <div class = "menubar-right">
