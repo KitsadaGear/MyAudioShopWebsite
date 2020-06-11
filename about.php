@@ -88,8 +88,6 @@
           }
       }
     </script>
-
-
   </div> 
  
 
@@ -155,11 +153,6 @@
       <p>Copyright by Korrakot Triwichain</p>
   </footer>
 
-
-  <div id="mapDiv">
-
-    
-  </div>
     </body>
 
     

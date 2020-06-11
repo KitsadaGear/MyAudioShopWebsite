@@ -88,8 +88,6 @@
           }
       }
     </script>
-
-
   </div> 
  
 
@@ -150,5 +148,12 @@
     </div>
 
     <div class="clearfix"></div>
+
+    <footer>
+      <p>Copyright by Korrakot Triwichain</p>
+  </footer>
+
     </body>
+
+    
     </html>

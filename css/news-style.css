@@ -50,12 +50,11 @@ color: white;
   color: white;
 }
 
-
-.menubar .news {
+.menubar {
   background-color: #4CAF52;
   color: white;
 }
-.menubar .news:hover {
+.menubar {
   background-color: #4CAF52;
   color: white;
 }
@@ -371,3 +370,13 @@ img.avatar2 {
     text-align: left;
   }
 }
+
+  footer {
+   background: black;
+   padding: 20px;
+    text-align: center;
+    color: #fff;
+  }
+  footer p {
+    margin: 0;
+  }

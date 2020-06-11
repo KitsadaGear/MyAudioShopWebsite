@@ -50,7 +50,7 @@
         </div>
         <?php if (isset($_SESSION['success'])) : ?>
           <div class = "menubar-rights">
-            <!-- Logout Function
+
             <?php
             function runMyFunction() {
               unset($_SESSION['success']) ;
@@ -60,7 +60,7 @@
               runMyFunction();
             }
             ?>
-            -->
+
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
             <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
           </div>
