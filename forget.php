@@ -17,7 +17,7 @@
     <div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
-        <a class="active" href="home.html">Home</a>
+        <a class="home" href="home.html">Home</a>
         <a class = "news" href="news.html">News</a>
           <div class="dropdown">
             <button class="dropbtn">Product

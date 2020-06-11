@@ -43,7 +43,7 @@ color: white;
   float: right;
   margin-left: 10px;
 }
-.menubar a:hover:not(.active) {
+.menubar a:hover:not(.home) {
   background-color: #555;
   color: white;
 }
