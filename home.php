@@ -62,6 +62,14 @@
             ?>
 
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
+            <div class="dropdown">
+            <button class="dropbtn">Setting
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="profile.php">Profile</a>  
+            </div>
+          </div>
             <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
           </div>
         <?php else : ?>

@@ -14,11 +14,12 @@
     <title>Audio Shop</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/news-style.css">
+    <link rel="stylesheet" href="css/profile-style.css">
     
 </head>
 <body>
-    <div class="menubar">
+
+<div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
         <a class= "homes" href="home.php">Home</a>
@@ -54,7 +55,7 @@
             <?php
             function runMyFunction() {
               unset($_SESSION['success']) ;
-              echo "<script> alert ('Logout Success');window.location='news.php' </script>" ;  
+              echo "<script> alert ('Logout Success');window.location='home.php' </script>" ;  
             }
             if (isset($_GET['logout'])) {
               runMyFunction();
@@ -62,7 +63,15 @@
             ?>
 
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
-            <a id = "logout_btn" href ="news.php?logout=true" >Logout</a>
+            <div class="dropdown">
+            <button class="dropbtn">Setting
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="">Profile</a>  
+            </div>
+          </div>
+            <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
           </div>
         <?php else : ?>
           <div class = "menubar-right">
@@ -152,12 +161,5 @@
     </div>
 
     <div class="clearfix"></div>
-
-    <footer>
-      <p>Copyright by Korrakot Triwichain</p>
-  </footer>
-
     </body>
-
-    
     </html>

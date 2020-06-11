@@ -11,7 +11,7 @@ body {
 background-color: black;
 overflow: hidden;
 width: 100%;
-
+cursor: pointer;
 }
 
 .menubar a {
@@ -36,16 +36,21 @@ color: white;
 }
 
 .menubar-left {
-  float: left;
-  margin-left: 10px;
+float: left;
+margin-left: 10px;
 }
 
 .menubar-right {
-  float: right;
-  margin-left: 10px;
+float: right;
+margin-left: 10px; 
 }
 
-.menubar a:hover:not(.home) {
+.menubar-rights  {
+float: right;
+margin-left: 10px; 
+}
+
+.menubar a:hover:not(.about) {
   background-color: #555;
   color: white;
 }

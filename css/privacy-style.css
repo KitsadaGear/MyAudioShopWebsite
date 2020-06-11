@@ -1,38 +1,38 @@
 body {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .clearfix {
-  clear: both;
+    clear: both;
 }
 
 .menubar {
-background-color: black;
-overflow: hidden;
-width: 100%;
-
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
 }
 
 .menubar a {
-float: left;
-color: white;
-text-align: center;
-padding: 12px;
-text-decoration: none;
-font-size: 18px; 
-line-height: 25px;
-border-radius: 4px;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
 }
 
 .menubar a.menubar_logo {
-font-size: 25px;
-
+  font-size: 25px;
+  
 }
 
 .menubar a:hover {
-background-color: black;
-color: white;
+  background-color: black;
+  color: white;
 }
 
 .menubar-left {
@@ -42,9 +42,13 @@ color: white;
 
 .menubar-right {
   float: right;
-  margin-left: 10px;
+  margin-left: 10px; 
 }
 
+.menubar-rights  {
+  float: right;
+  margin-left: 10px; 
+}
 @media screen and (max-width: 500px) {
   .menubar a {
     float: none;

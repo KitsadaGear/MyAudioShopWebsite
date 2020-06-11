@@ -1,3 +1,8 @@
+<?php 
+    session_start();
+    include('server.php'); 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +19,10 @@
 </head>
 <body>
 
-    <div class="menubar">
+<div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
-        <a class="home" href="home.php">Home</a>
+        <a class= "homes" href="home.php">Home</a>
         <a class = "news" href="news.php">News</a>
           <div class="dropdown">
             <button class="dropbtn">Product
@@ -44,31 +49,60 @@
             <a class = "about"href="about.php">About us</a>
             <a class = "contact" href="contact.php">Contact</a>
         </div>
-        <div class = "menubar-right">
-          <a onclick="document.getElementById('id01').style.display='block'">Login</a>  
-          <a onclick="document.getElementById('id02').style.display='block'">Register</a>  
-        </div>
+        <?php if (isset($_SESSION['success'])) : ?>
+          <div class = "menubar-rights">
+
+            <?php
+            function runMyFunction() {
+              unset($_SESSION['success']) ;
+              echo "<script> alert ('Logout Success');window.location='home.php' </script>" ;  
+            }
+            if (isset($_GET['logout'])) {
+              runMyFunction();
+            }
+            ?>
+
+            <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
+            <div class="dropdown">
+            <button class="dropbtn">Setting
+              <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+              <a href="">Profile</a>  
+            </div>
+          </div>
+            <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
+          </div>
+        <?php else : ?>
+          <div class = "menubar-right">
+            <a class = "login_btn" id = "login_btn" onclick="document.getElementById('id01').style.display='block'">Login</a>  
+            <a id = "regis_btn" onclick= "document.getElementById('id02').style.display='block'">Register</a>  
+          </div>
+          
+        <?php endif ?>
+
      </div>
 
   <!-- The Modal -->
   <div id="id01" class="modal">
       <!-- Modal Content -->
-    <form class="modal-content animate" action="/action_page.php">
+    <form class="modal-content animate" id = "login_form" action = "login_database.php" method = "post">
       <div class="imgcontainer">
-        <span onclick="document.getElementById('id01').style.display='none'"
-      class="close" title="Close Modal">&times;</span>
+        <span onclick ="document.getElementById('id01').style.display='none';document.getElementById('login_form').reset();" ;
+      class="close" title="Close Modal" >&times;</span>
         <img src="img/empty.png" alt="Avatar" class="avatar">
       </div>
   
       <div class="containers">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" id = "username" required autocomplete="off">
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required id = "myPassword">
+        <input type="password" placeholder="Enter Password" name="psw" required id = "myPassword" autocomplete="off" >
         <input type="checkbox" onclick="showLoginPassword()">Show Password
         
-        <button type="submit">Login</button>
+        <button type="submit" name = "login_user" class = "btn">Login</button>
+
         <label><input type="checkbox" checked="checked" name="remember"> Remember me</label>
         <div class="container_login" style="background-color:#f1f1f1">
          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
@@ -76,55 +110,32 @@
         </div>
       </div>
     </form>
-
-    <script>
-      // Get the modal
-      var modal = document.getElementById('id01');
-      
-      // When the user clicks anywhere outside of the modal, close it
-      window.onclick = function(event) {
-          if (event.target == modal) {
-              modal.style.display = "none";
-          }
-      }
-    </script>
-
-
   </div> 
  
-
   <!-- The Modal -->
-<div id="id02" class="modal2">
-  <script>
-    // Get the modal
-    var modal = document.getElementById('id02');
-    
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-  </script>
+<div id="id02" class="modal2" >
+
   <!-- Modal Content -->
-  <form class="modal-content animate2" onSubmit = "return checkPassword(this)" >
+  <form id = "regis_form" class="modal-content animate2" action  = "register_database.php" method = "post">
+
     <div class="imgcontainer2">
-      <span onclick="document.getElementById('id02').style.display='none'"
+      <span onclick="document.getElementById('id02').style.display='none';document.getElementById('regis_form').reset();"
       class="close2" title="Close Modal">&times;</span>
       <img src="img/empty.png" alt="Avatar" class="avatar2">
     </div>
 
     <div class="containers2">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required autocomplete="off">
       
       <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            title="Wrong E-mail pattern" autocomplete="off" required>
+            title="Wrong E-mail pattern" autocomplete = "off" required >
 
             <label for="phone"><b>Phone Number</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="phone" pattern=".{8,}"
+            <input type="text" placeholder="Enter Phone Number" name="phonenumber" pattern=".{8,}"
             title = "Wrong Phone Number pattern" autocomplete="off" required>
+
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required autocomplete = "off">
         
             <label for="psw2"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw-regis" id = "myRegisPassword" pattern= "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
@@ -139,11 +150,11 @@
    
             <p>By creating an account you agree to our <a href="privacy.php">Terms & Privacy</a>.</p>
 
-            <button type="submit" value="submit" >Register</button>
+            <button type="submit" name = "regis_user" class = "btn" id = regis_user>Register</button>
 
             <div class="container_signin" style="background-color:#f1f1f1">
-              <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
-              <span class="psw2">Already have an account? <a href="login.php">Sign in</a></span>
+              <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn2">Cancel</button>
+              <span class="psw2">Already have an account? <a href = "" onclick="exitRegis()">Sign in</a></span>
             </div>
           </div>
         </form>
