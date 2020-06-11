@@ -361,6 +361,11 @@ img.avatar2 {
   }
 }
 
+.imgcontainer p{
+  font-size: 25px;
+}
+
+
 footer {
   background: black;
   padding: 20px;

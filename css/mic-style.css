@@ -290,6 +290,11 @@ span.psw2 {
 }
 }
 
+.imgcontainer p{
+  font-size: 25px;
+}
+
+
 .dropdown {
   float: left;
   overflow: hidden;

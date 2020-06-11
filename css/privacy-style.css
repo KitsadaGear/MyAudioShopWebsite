@@ -282,6 +282,11 @@ img.avatar2 {
   }
 }
 
+.imgcontainer p{
+  font-size: 25px;
+}
+
+
   .header{
     background : url(../img/headerprivacy.jpg) ;
     background-size: 100% 100% ;

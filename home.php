@@ -61,16 +61,19 @@
             }
             ?>
 
-            <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
             <div class="dropdown">
             <button class="dropbtn">Setting
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="profile.php">Profile</a>  
+              <a href="profile.php">Profile</a> 
+              <a>Your Transaction</a>
+              <a>Order history</a>
+              <a id = "change_btn" onclick = "document.getElementById('id_change').style.display ='block'">Change Password</a>
+              <a id = "logout_btn" href ="home.php?logout=true" >Logout</a> 
             </div>
           </div>
-            <a id = "logout_btn" href ="home.php?logout=true" >Logout</a>
+          <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
           </div>
         <?php else : ?>
           <div class = "menubar-right">
@@ -126,38 +129,76 @@
     <div class="containers2">
       
       <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-            title="Wrong E-mail pattern" autocomplete = "off" required >
+      <input type="text" placeholder="Enter Email" name="email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+       title="Wrong E-mail pattern" autocomplete = "off" required >
 
-            <label for="phone"><b>Phone Number</b></label>
-            <input type="text" placeholder="Enter Phone Number" name="phonenumber" pattern=".{8,}"
-            title = "Wrong Phone Number pattern" autocomplete="off" required>
+      <label for="phone"><b>Phone Number</b></label>
+      <input type="text" placeholder="Enter Phone Number" name="phonenumber" pattern=".{8,}"
+        title = "Wrong Phone Number pattern" autocomplete="off" required>
 
-            <label for="username"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="username" required autocomplete = "off">
+      <label for="username"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="username" required autocomplete = "off">
         
-            <label for="psw2"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw-regis" id = "myRegisPassword" pattern= "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" required>
+      <label for="psw2"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw-regis" id = "myRegisPassword" pattern= "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" autocomplete="off" required>
         
-            <label for="psw-repeat"><b>Confirm Password</b></label>
-            <input type="password" placeholder="Confirm Password" name="psw-confirmed" id = "myRepeatPassword" autocomplete="off" required>
+      <label for="psw-repeat"><b>Confirm Password</b></label>
+      <input type="password" placeholder="Confirm Password" name="psw-confirmed" id = "myRepeatPassword" autocomplete="off" required>
 
-            <input type="checkbox" onclick="showRegisPassword()">Show Password
-            <input type="checkbox" onclick="showRepeatPassword()" id = "Confirm_password">Show Confirm-Password
-            <input type="file" id="myFile" name="filename">
+      <input type="checkbox" onclick="showRegisPassword()">Show Password
+      <input type="checkbox" onclick="showRepeatPassword()" id = "Confirm_password">Show Confirm-Password
+      <input type="file" id="myFile" name="filename">
    
-            <p>By creating an account you agree to our <a href="privacy.php">Terms & Privacy</a>.</p>
+      <p>By creating an account you agree to our <a href="privacy.php">Terms & Privacy</a>.</p>
 
-            <button type="submit" name = "regis_user" class = "btn" id = regis_user>Register</button>
+      <button type="submit" name = "regis_user" class = "btn" id = regis_user>Register</button>
 
-            <div class="container_signin" style="background-color:#f1f1f1">
-              <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn2">Cancel</button>
-              <span class="psw2">Already have an account? <a href = "" onclick="exitRegis()">Sign in</a></span>
-            </div>
-          </div>
-        </form>
+      <div class="container_signin" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn2">Cancel</button>
+        <span class="psw2">Already have an account? <a href = "" onclick="exitRegis()">Sign in</a></span>
+     </div>
     </div>
+  </form>
+</div>
+
+    <!-- The Modal -->
+  <div id="id_change" class="modal">
+      <!-- Modal Content -->
+    <form class="modal-content animate" id = "change_form" action = "change_forget_database.php" method = "post">
+      <div class="imgcontainer">
+        <span onclick ="document.getElementById('id_change').style.display='none';document.getElementById('login_form').reset();" ;
+      class="close" title="Close Modal" >&times;</span>
+        <header>
+          <p>Change Password</p>
+        </header>
+      </div>
+  
+      <div class="containers">
+        <label for="email"><b>Email</b></label>
+        <input type="text" placeholder="Enter Email" name="email" pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+        title="Wrong E-mail pattern" autocomplete = "off" required >
+
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" id = "username" required autocomplete="off">
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required id = "oldPassword" autocomplete="off" >
+
+        <label for="psw"><b>New-Password</b></label>
+        <input type="password" placeholder="Enter Password" name="new-psw" required id = "newPassword" autocomplete="off" >
+
+        <input type="checkbox" onclick="showOldPassword()">Show Old Password
+        <input type="checkbox" onclick="showNewPassword()">Show New Password
+        
+        <button type="submit" name = "change_password" class = "btn">Submit</button>
+
+        <div class="container_login" style="background-color:#f1f1f1">
+         <button type="button" onclick="document.getElementById('id_change').style.display='none'" class="cancelbtn">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div> 
 
     <header class="header">
       <div class="header_area">

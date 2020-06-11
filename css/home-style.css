@@ -302,6 +302,10 @@ img.avatar2 {
      width: 100%;
   }
 }
+
+.imgcontainer p{
+  font-size: 25px;
+}
    
   
   /*---------------*/

@@ -11,6 +11,7 @@ body {
 background-color: black;
 overflow: hidden;
 width: 100%;
+cursor: pointer;
 
 }
 
@@ -41,7 +42,12 @@ color: white;
 
 .menubar-right {
   float: right;
-  margin-left: 10px;
+  margin-left: 10px; 
+}
+
+.menubar-rights  {
+  float: right;
+  margin-left: 10px; 
 }
 .menubar a:hover:not(.home) {
   background-color: #555;
@@ -292,6 +298,11 @@ img.avatar2 {
      width: 100%;
   }
 }
+
+.imgcontainer p{
+  font-size: 25px;
+}
+
 
 /* Three columns side by side */
 .column {
