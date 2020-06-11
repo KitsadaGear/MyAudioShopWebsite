@@ -50,16 +50,16 @@ body {
   margin-left: 10px; 
 }
   
-.menubar a:hover:not(.active) {
+.menubar a:hover:not(.home) {
   background-color: #555;
   color: white;
 }
 
-.menubar .active {
+.menubar .home {
   background-color: #4CAF52;
   color: white;
 }
-.menubar .active:hover {
+.menubar .home:hover {
   background-color: #4CAF52;
   color: white;
 }
