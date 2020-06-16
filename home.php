@@ -14,7 +14,9 @@
     <title>Audio Shop</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/home-style.css">
+    <link rel="stylesheet" href="css/home-style.css" media="screen,projection">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="screen,projection">
+
     
 </head>
 <body>
@@ -23,32 +25,32 @@
     <div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
-        <a class= "homes" href="home.php">Home</a>
-        <a class = "news" href="news.php">News</a>
+        <a class= "homes" href="home.php"><i class="fa fa-fw fa-home"></i> Home</a>
+        <a class = "news" href="news.php"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
           <div class="dropdown">
-            <button class="dropbtn">Product
+            <button class="dropbtn"><i class="fa fa-shopping-bag" aria-hidden="true"></i> Product
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="mic.php">Microphone</a>
-              <a href="#">Speaker</a>
-              <a href="#">Power Mix</a>
-              <a href="#">Other</a>
+              <a href="mic.php"><i class="fa fa-cog" aria-hidden="true"></i> Microphone</a>
+              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Speaker</a>
+              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Power Mix</a>
+              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Other</a>
             </div>
           </div>
           <div class="dropdown">
-            <button class="dropbtn">Transaction
+            <button class="dropbtn"><i class="fa fa-cogs" aria-hidden="true"></i> Transaction
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="#">Deposit Payment</a>
-              <a href="#">Full Payment</a>
-              <a href="#">Delivery</a>
-              <a href="#">Installation work</a>
+              <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Deposit Payment</a>
+              <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Full Payment</a>
+              <a href="#"><i class="fa fa-car" aria-hidden="true"></i> Delivery</a>
+              <a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></i> Installation work</a>
             </div>
           </div>  
-            <a class = "about"href="about.php">About us</a>
-            <a class = "contact" href="contact.php">Contact</a>
+            <a class = "about"href="about.php"><i class="fa fa-user" aria-hidden="true"></i> About us</a>
+            <a class = "contact" href="contact.php"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Contact</a>
         </div>
         <?php if (isset($_SESSION['success'])) : ?>
 
@@ -63,11 +65,12 @@
               runMyFunction();
             }
             ?>
+            <a class = "shopping_basket"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
             <div class = "setting" id ="setting_bar">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="profile.php">Profile</a> 
+              <a href="profile.php"><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a> 
               <a>Order history</a>
               <a id = "change_btn" onclick = "document.getElementById('id_change').style.display ='block'">Change Password</a>
               <a id = "logout_btn" href ="home.php?logout=true" >Logout</a> 
