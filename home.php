@@ -18,6 +18,8 @@
     
 </head>
 <body>
+  <div class = "myPage" id = "myPage">
+
     <div class="menubar">
       <a class = menubar_logo>Audio Shop</a>  
       <div class = "menubar-left">
@@ -49,6 +51,7 @@
             <a class = "contact" href="contact.php">Contact</a>
         </div>
         <?php if (isset($_SESSION['success'])) : ?>
+
           <div class = "menubar-rights">
 
             <?php
@@ -60,21 +63,18 @@
               runMyFunction();
             }
             ?>
+            <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
-            <div class="dropdown">
-            <button class="dropbtn">Setting
-              <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
+            <div class = "setting" id ="setting_bar">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
               <a href="profile.php">Profile</a> 
-              <a>Your Transaction</a>
               <a>Order history</a>
               <a id = "change_btn" onclick = "document.getElementById('id_change').style.display ='block'">Change Password</a>
               <a id = "logout_btn" href ="home.php?logout=true" >Logout</a> 
             </div>
-          </div>
-          <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
-          </div>
+            <span class = "set_bar" onclick="openNav()">&#9776;</span>
+        </div>
+
         <?php else : ?>
           <div class = "menubar-right">
             <a class = "login_btn" id = "login_btn" onclick="document.getElementById('id01').style.display='block'">Login</a>  
@@ -194,9 +194,11 @@
         <button type="submit" name = "change_password" class = "btn">Submit</button>
 
         <div class="container_login" style="background-color:#f1f1f1">
-         <button type="button" onclick="document.getElementById('id_change').style.display='none'" class="cancelbtn">Cancel</button>
+          <button type="button" onclick="document.getElementById('id_change').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
-      </div>
+
+      </div> 
+     
     </form>
   </div> 
 
@@ -221,5 +223,6 @@
       <p>Copyright by Korrakot Triwichain</p>
     </footer>
     
+  </div>
 </body>
 </html>

@@ -51,3 +51,16 @@ function showRepeatPassword() {
     x.type = "password";
   }
 }
+
+function openNav() {
+  document.getElementById("setting_bar").style.width = "300px";
+  document.getElementById("myPage").style.marginRight = "300px";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0, and the background color of body to white */
+function closeNav() {
+  document.getElementById("setting_bar").style.width = "0";
+  document.getElementById("myPage").style.marginRight = "0";
+  document.body.style.backgroundColor = "white";
+}

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .clearfix {
@@ -8,31 +8,30 @@ body {
 }
 
 .menubar {
-background-color: black;
-overflow: hidden;
-width: 100%;
-cursor: pointer;
-
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+  cursor: pointer;
 }
 
 .menubar a {
-float: left;
-color: white;
-text-align: center;
-padding: 12px;
-text-decoration: none;
-font-size: 18px; 
-line-height: 25px;
-border-radius: 4px;
+  float: left;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  line-height: 25px;
+  border-radius: 4px;
 }
 
 .menubar a.menubar_logo {
-font-size: 25px;
+  font-size: 25px;
 }
 
 .menubar a:hover {
-background-color: black;
-color: white;
+  background-color: black;
+  color: white;
 }
 
 .menubar-left {
@@ -42,12 +41,12 @@ color: white;
 
 .menubar-right {
   float: right;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 
-.menubar-rights  {
+.menubar-rights {
   float: right;
-  margin-left: 10px; 
+  margin-left: 10px;
 }
 .menubar a:hover:not(.home) {
   background-color: #555;
@@ -55,16 +54,13 @@ color: white;
 }
 
 .menubar .contact {
-  background-color: #4CAF52;
+  background-color: #4caf52;
   color: white;
 }
 .menubar .contact:hover {
-  background-color: #4CAF52;
+  background-color: #4caf52;
   color: white;
 }
-
-
-
 
 @media screen and (max-width: 500px) {
   .menubar a {
@@ -80,131 +76,200 @@ color: white;
   }
 }
 
+/* The side navigation settng bar */
+
+.setting {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+/* The navigation menu links */
+.setting a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.setting a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.setting .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#myPage {
+  transition: margin-left 0.5s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .setting {
+    padding-top: 15px;
+  }
+  .setting a {
+    font-size: 25px;
+  }
+}
+
+.set_bar {
+  font-size: 30px;
+  color: #f1f1f1;
+  margin-left: 10px;
+  margin-right: 25px;
+}
 
 /*Login Btn */
 
-  /* Full-width input fields */
-  input[type=text], input[type=password] {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-  }
-  
-  /* Set a style for all buttons */
-  button {
-    background-color: #4caf51;
-    color: black;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-  
-  button:hover {
-    opacity: 0.8;
-  }
-  
-  /* Extra styles for the cancel button */
-  .cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
-  }
-  
-  /* Center the image and position the close button */
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    position: relative;
-  }
-  
-  img.avatar {
-    width: 30%;
-    border-radius: 50%;
-  }
-  
-  .containers {
-    padding: 3%;
-  }
+/* Full-width input fields */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
-  .container_login {
-    padding: 3%;
-  }
-  
-  span.psw {
-    float: right;
-    padding-top: 16px;
-  }
-  
-  /* The Modal (background) */
-  .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-  /* Add Zoom Animation */
+/* Set a style for all buttons */
+button {
+  background-color: #4caf51;
+  color: black;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 30%;
+  border-radius: 50%;
+}
+
+.containers {
+  padding: 3%;
+}
+
+.container_login {
+  padding: 3%;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+/* Add Zoom Animation */
 .animate {
   -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+  animation: animatezoom 0.6s;
 }
 
 @-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
 }
-  
+
 @keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw {
-     display: block;
-     float: none;
+    display: block;
+    float: none;
   }
   .cancelbtn {
-     width: 100%;
+    width: 100%;
   }
 }
- 
+
 /*Register Btn */
 
 /* Extra styles for the cancel button */
@@ -230,79 +295,78 @@ img.avatar2 {
   padding: 3%;
 }
 
-.containers2 #myFile{
+.containers2 #myFile {
   font-size: 15px;
 }
 
-.container_signin{
+.container_signin {
   padding: 2%;
 }
 
 .container_signin span {
-  float : right;
+  float: right;
   padding-top: 2%;
 }
 
-  /* The Modal (background) */
-  .modal2 {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content2 {
-    background-color: #fefefe;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    border: 1px solid #888;
-    width: 50%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button (x) */
-  .close2 {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close2:hover,
-  .close2:focus {
-    color: red;
-    cursor: pointer;
-  }
+/* The Modal (background) */
+.modal2 {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
 
-   /* Add Zoom Animation */
+/* Modal Content/Box */
+.modal-content2 {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 50%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close2 {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
 .animate2 {
   -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
+  animation: animatezoom 0.6s;
 }
 
 /* Change styles for span and cancel button on extra small screens */
 @media screen and (max-width: 300px) {
   span.psw2 {
-     display: block;
-     float: none;
+    display: block;
+    float: none;
   }
   .cancelbtn2 {
-     width: 100%;
+    width: 100%;
   }
 }
 
-.imgcontainer p{
+.imgcontainer p {
   font-size: 25px;
 }
-
 
 /* Three columns side by side */
 .column {
@@ -331,7 +395,8 @@ img.avatar2 {
 }
 
 /* Clear floats */
-.container::after, .row::after {
+.container::after,
+.row::after {
   content: "";
   clear: both;
   display: table;
@@ -362,18 +427,17 @@ footer {
   padding: 20px;
   text-align: center;
   color: #fff;
-  
 }
 footer p {
   margin: 0;
 }
 
 .row {
-    background : url(../img/contact_bg.jpg) no-repeat;
-    background-position: center center;
-    background-size: cover;
-    width: 100%;
-    height: 919px;
+  background: url(../img/contact_bg.jpg) no-repeat;
+  background-position: center center;
+  background-size: cover;
+  width: 100%;
+  height: 919px;
 }
 
 .dropdown {
@@ -382,7 +446,7 @@ footer p {
 }
 
 .dropdown .dropbtn {
-  font-size: 18px;    
+  font-size: 18px;
   border: none;
   outline: none;
   color: white;
@@ -396,7 +460,7 @@ footer p {
   position: absolute;
   background-color: black;
   min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
@@ -409,7 +473,8 @@ footer p {
   text-align: left;
 }
 
-.topnav a:hover, .dropdown:hover .dropbtn {
+.topnav a:hover,
+.dropdown:hover .dropbtn {
   background-color: #555;
   color: white;
 }
@@ -424,7 +489,8 @@ footer p {
 }
 
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child), .dropdown .dropbtn {
+  .topnav a:not(:first-child),
+  .dropdown .dropbtn {
     display: none;
   }
   .topnav a.icon {
@@ -434,7 +500,9 @@ footer p {
 }
 
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -445,8 +513,12 @@ footer p {
     display: block;
     text-align: left;
   }
-  .topnav.responsive .dropdown {float: none;}
-  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown {
+    float: none;
+  }
+  .topnav.responsive .dropdown-content {
+    position: relative;
+  }
   .topnav.responsive .dropdown .dropbtn {
     display: block;
     width: 100%;
