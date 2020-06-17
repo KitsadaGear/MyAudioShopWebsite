@@ -31,16 +31,16 @@
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username_login;
                 $_SESSION['success'] = "Success";
-                echo "<script> alert ('Your are now logged in');window.location='home.php' </script>" ; 
+                echo "<script> alert ('Your are now logged in');window.location='../webpage/home.php' </script>" ; 
             }else {
                 array_push($errors, "Wrong Username or Password");
                 $_SESSION['error'] = "Wrong Username or Password!";
-                echo "<script> alert ('Wrong Username or Password!');window.location='home.php' </script>" ;   
+                echo "<script> alert ('Wrong Username or Password!');window.location='../webpage/home.php' </script>" ;   
             }
         } else {
             array_push($errors, "Username & Password is required");
             $_SESSION['error'] = "Fail";
-            echo "<script> alert ('Username & Password is required');window.location='home.php' </script>" ;         
+            echo "<script> alert ('Username & Password is required');window.location='../webpage/home.php' </script>" ;         
         }
     }
 

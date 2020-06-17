@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('user_server.php'); 
+    include('../database_php/user_server.php'); 
 
     $errors = array(); 
 
@@ -61,9 +61,9 @@
 
 
             $_SESSION['username'] = $username ; 
-            echo "<script> alert ('Register Complete Welcome $username');window.location='home.php' </script>" ; 
+            echo "<script> alert ('Register Complete Welcome $username');window.location='../webpage/home.php' </script>" ; 
         }else {
-            echo "<script> alert ('Username or Email or PhoneNumber is already exists');window.location='home.php'</script>" ; 
+            echo "<script> alert ('Username or Email or PhoneNumber is already exists');window.location='../webpage/home.php'</script>" ; 
         }
     }
 ?>
