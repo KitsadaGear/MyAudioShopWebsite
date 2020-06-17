@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('../database_php/user_server.php'); 
+    include('user_server.php'); 
 
     $errors = array(); 
 
@@ -10,6 +10,7 @@
         $username = mysqli_real_escape_string($conn , $_POST['username']);
         $password1 = mysqli_real_escape_string($conn , $_POST['psw-regis']);
         $password2 = mysqli_real_escape_string($conn , $_POST['psw-confirmed']);
+        $picture = mysqli_real_escape_string($conn , $_POST['filename']);
 
         if(empty($username)){
             array_push($errors , "Username is required");
@@ -35,7 +36,7 @@
             array_push($errors , "Password not match!!");
         }
 
-        $user_check_query = "SELECT * FROM user_info WHERE email = '$email' OR phonenumber = '$phonenumber' OR username = '$username' LIMIT 1 " ; 
+        $user_check_query = "SELECT * FROM user_login WHERE email = '$email' OR phonenumber = '$phonenumber' OR username = '$username' LIMIT 1 " ; 
         $query = mysqli_query($conn , $user_check_query);
         $result = mysqli_fetch_assoc($query);
 
@@ -56,8 +57,10 @@
         if(count($errors) == 0){
             $password = md5($password1); 
 
-            $sql = "INSERT INTO user_info (email , phonenumber , username , password) VALUES ('$email' , '$phonenumber' , '$username' , '$password')" ; 
+            $sql = "INSERT INTO user_login (email , phonenumber , username , password) VALUES ('$email' , '$phonenumber' , '$username' , '$password')" ; 
+            $sqlInfo = "INSERT INTO user_full_information (email , phonenumber,picture) VALUES ('$email' , '$phonenumber','$picture')" ; 
             mysqli_query($conn , $sql); 
+            mysqli_query($conn, $sqlInfo); 
 
 
             $_SESSION['username'] = $username ; 

@@ -25,11 +25,11 @@
         if (count($errors) == 0) {
             $password = md5($password);
             $new_password = md5($new_password);  
-            $query = "SELECT * FROM user_info WHERE username = '$username' AND password = '$password' AND email = '$email' ";
+            $query = "SELECT * FROM user_login WHERE username = '$username' AND password = '$password' AND email = '$email' ";
             $result = mysqli_query($conn, $query);
             
             if (mysqli_num_rows($result) == 1) {
-                $change_password = "UPDATE user_info SET password = '$new_password'" ; 
+                $change_password = "UPDATE user_login SET password = '$new_password'" ; 
                 mysqli_query($conn , $change_password); 
                 unset($_SESSION['success']) ;
                 echo "<script> alert ('Change Success');window.location='home.php' </script>" ;  

@@ -388,6 +388,10 @@ img.avatar2 {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
+.card img {
+  padding-top: 25px;
+}
+
 /* Some left and right padding inside the container */
 .pic_container {
   padding: 0 16px;

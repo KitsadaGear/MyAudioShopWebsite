@@ -151,7 +151,7 @@
 
   <input type="checkbox" onclick="showRegisPassword()">Show Password
   <input type="checkbox" onclick="showRepeatPassword()" id = "Confirm_password">Show Confirm-Password
-  <input type="file" id="myFile" name="filename">
+  <input type="file" id="myFile" name="filename" required>
 
   <p>By creating an account you agree to our <a href="privacy.php">Terms & Privacy</a>.</p>
 
@@ -204,6 +204,56 @@
 </div>
 
     <div class="clearfix"></div>
-     </div>
-    </body>
-    </html>
+
+  <header class = "header">
+    <div class ="mic_header">
+      <h1>Microphone</h1>
+    </div>
+  </header>
+
+  <section class = "product">
+
+  <div class="card">
+      <div class = "card_column">
+        <div class = "card1">
+         <img src="../img/K&M21070.png" alt="K&M21070">
+          <h1>K&M21070</h1>
+          <p class="price">$19.99</p>
+          <p>Some text about the jeans..</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class = "card_column">
+      <div class = "card2">
+         <img src="../img/SHURE_SM58.jpg" alt="SHURE_SM58">
+          <h1>SHURE_SM58</h1>
+          <p class="price">$19.99</p>
+          <p>Some text about the jeans..</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+        </div>
+      </div>
+
+      <div class="card">
+      <div class = "card_column">
+      <div class = "card3">
+         <img src="../img/1426558167.jpg" alt="1426558167">
+          <h1>SHURE_9J04</h1>
+          <p class="price">$19.99</p>
+          <p>Some text about the jeans..</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </section>
+    
+
+</div>
+</body>
+</html>

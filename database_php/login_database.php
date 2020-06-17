@@ -21,7 +21,7 @@
             $username_login = ucfirst($username);
             date_default_timezone_set('Asia/Bangkok');
             $dt = date("y-m-d H:i:s",time());
-            $query = "SELECT * FROM user_info WHERE username = '$username' AND password = '$password' ";
+            $query = "SELECT * FROM user_login WHERE username = '$username' AND password = '$password' ";
             $log = "INSERT INTO user_log (username , date_time) VALUES ('$username_login' , '$dt')" ; 
             $result = mysqli_query($conn, $query);
             $log_result = mysqli_query($conn , $log) ; 

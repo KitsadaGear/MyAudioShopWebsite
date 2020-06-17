@@ -152,7 +152,7 @@
 
       <input type="checkbox" onclick="showRegisPassword()">Show Password
       <input type="checkbox" onclick="showRepeatPassword()" id = "Confirm_password">Show Confirm-Password
-      <input type="file" id="myFile" name="filename">
+      <input type="file" id="myFile" name="filename" required>
    
       <p>By creating an account you agree to our <a href="privacy.php">Terms & Privacy</a>.</p>
 
