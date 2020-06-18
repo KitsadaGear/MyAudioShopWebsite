@@ -355,8 +355,8 @@ img.avatar2 {
 }
 
 .header {
-  background: url(../img/headerprivacy.jpg);
-  background-size: 100% 100%;
+  background: url(../img/headerprivacy.jpg) no-repeat;
+  background-size: cover;
   width: 100%;
 }
 
@@ -375,40 +375,44 @@ img.avatar2 {
 }
 
 .info .infomation h1 {
+  padding-top: 10px;
   margin: 0;
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
+  padding-bottom: 20px;
 }
 .info .infomation h2 {
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
 }
 .info .infomation h3 {
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
 }
 .info .infomation h4 {
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
 }
 .info .infomation h5 {
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
 }
 .info .infomation h6 {
-  margin-left: 300px;
+  margin-left: 75px;
   font-size: 25px;
   margin-top: 50px;
 }
 
 .info .infomation p {
-  margin-left: 400px;
-  width: 50%;
+  margin: 0;
+  width: 75%;
+  margin-left: 50px;
 }
 
 .info li {
   margin-top: 50px;
   font-size: 20px;
+  padding-bottom: 20px;
 }
 
 footer {

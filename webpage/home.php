@@ -211,10 +211,6 @@
         <div class = "promote">
           <h1>สวัสดีครับ</h1>
           <p>บริการรับซื้อ-ขายเครื่องเสียงและดำเนินการติดตั้งตามงานต่างๆ</p>
-          <button id = "promote1" role = "button" onclick="window.location.href='#infomation1'">สินค้าคุณภาพดี</button> 
-          <button id = "promote2" role = "button" onclick="window.location.href='#infomation2'">มีการทำงานที่เป็นระบบ</button>         
-          <button id = "promote3" role = "button" onclick="window.location.href='#infomation3'">คุ้มค่ากับราคา</button> 
-          <button id = "promote4" role = "button" onclick="window.location.href='#infomation4'">มีบริการระหว่างการขาย</button>  
         </div>          
       </div>
     </header> 

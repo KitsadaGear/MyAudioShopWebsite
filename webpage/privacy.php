@@ -210,8 +210,6 @@
         <h1>Term & Policy</h1>
       </div>
     </header> 
-
-    <div class="clearfix"></div>
     
       <div class = "info">
           <div class = "infomation">
