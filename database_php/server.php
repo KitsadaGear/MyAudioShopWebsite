@@ -3,7 +3,7 @@
     $user_servername = "localhost" ; 
     $username = "root" ; 
     $password = "" ; 
-    $dbname = "user_database" ; 
+    $dbname = "audio_shop" ; 
 
     // Create Connection
     $conn = mysqli_connect($user_servername, $username, $password, $dbname);

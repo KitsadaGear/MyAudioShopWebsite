@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('user_server.php'); 
+    include('server.php'); 
 
     $errors = array(); 
 
@@ -57,8 +57,8 @@
         if(count($errors) == 0){
             $password = md5($password1); 
 
-            $sql = "INSERT INTO user_login (email , phonenumber , username , password) VALUES ('$email' , '$phonenumber' , '$username' , '$password')" ; 
-            $sqlInfo = "INSERT INTO user_full_information (email , phonenumber,picture) VALUES ('$email' , '$phonenumber','$picture')" ; 
+            $sql = "INSERT INTO user_login (email , phonenumber , username , password , permission) VALUES ('$email' , '$phonenumber' , '$username' , '$password' , 'C')" ; 
+            $sqlInfo = "INSERT INTO user_full_information (email , phonenumber ,picture , permission) VALUES ('$email' , '$phonenumber','$picture' , 'C')" ; 
             mysqli_query($conn , $sql); 
             mysqli_query($conn, $sqlInfo); 
 

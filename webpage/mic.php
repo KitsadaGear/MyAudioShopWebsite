@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('../database_php/user_server.php'); 
+    include('../database_php/server.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@
             </button>
         <div class="dropdown-content">
               <a href="mic.php"><i class="fa fa-cog" aria-hidden="true"></i> Microphone</a>
-              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Speaker</a>
+              <a href="speaker.php"><i class="fa fa-cog" aria-hidden="true"></i> Speaker</a>
               <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Power Mix</a>
               <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Other</a>
             </div>
@@ -65,7 +65,7 @@
           runMyFunction();
         }
         ?>
-         <a class = "shopping_basket"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+          <a class = "shopping_basket" href = "shopping_basket.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
         <div class = "setting" id ="setting_bar">
@@ -218,8 +218,8 @@
         <div class = "card1">
          <img src="../img/K&M21070.png" alt="K&M21070">
           <h1>K&M21070</h1>
-          <p class="price">$19.99</p>
-          <p>Some text about the jeans..</p>
+          <p class="price">1490 Baht</p>
+          <p>Cast iron base and boom arm, Adjustable height from 900 to 1600 mm, Boom arm length: 805 mm, Weight: 2.18 kg</p>
           <p><button>Add to Cart</button></p>
         </div>
       </div>
@@ -230,8 +230,8 @@
       <div class = "card2">
          <img src="../img/SHURE_SM58.jpg" alt="SHURE_SM58">
           <h1>SHURE_SM58</h1>
-          <p class="price">$19.99</p>
-          <p>Some text about the jeans..</p>
+          <p class="price">4990 Baht</p>
+          <p>Dynamic Vocal Microphone with Cardioid Pickup Pattern and 50Hz-15kHz Frequency Response, Includes Stand Adapter</p>
           <p><button>Add to Cart</button></p>
         </div>
         </div>
@@ -241,15 +241,32 @@
       <div class = "card_column">
       <div class = "card3">
          <img src="../img/1426558167.jpg" alt="1426558167">
-          <h1>SHURE_9J04</h1>
-          <p class="price">$19.99</p>
-          <p>Some text about the jeans..</p>
+          <h1>SHURE_MV51</h1>
+          <p class="price">3500 Baht</p>
+          <p>Digital Large-Diaphragm Condenser Microphone with stand, USB and Lightning Connects directly to any iOS device</p>
           <p><button>Add to Cart</button></p>
         </div>
         </div>
       </div>
+
+      <div class="card">
+      <div class = "card_column">
+      <div class = "card4">
+         <img src="../img/Shure_SM7B.jpg" alt="1426558167">
+          <h1>SHURE_SM7B</h1>
+          <p class="price">24900 Baht</p>
+          <p>Wide-Range Frequency Response 50 Hz to 20 kHz, Impedance 150 Ohms, Air Suspension Shock Isolation, Pop Filter Built-In</p>
+          <p><button>Add to Cart</button></p>
+        </div>
+        </div>
+      </div>
+
+
     </div>
     </div>
+
+    
+    
 
   </section>
     

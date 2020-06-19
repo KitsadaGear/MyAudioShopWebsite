@@ -14,8 +14,8 @@
     <title>Audio Shop</title>
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="../css/forget-style.css" media = "screen,projection">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="screen,projection">>
+    <link rel="stylesheet" href="../css/admin-style.css" media = "screen,projection">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="screen,projection">
     
 </head>
 <body>
@@ -66,7 +66,7 @@
         }
         ?>
           <a class = "shopping_basket" href = "shopping_basket.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
-            <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
+          <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
         <div class = "setting" id ="setting_bar">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -201,13 +201,14 @@
     </div>
   </div> 
 </form>
-</div>
+</div> 
 
     <div class="clearfix"></div>
 
     <footer>
       <p>Copyright by Korrakot Triwichain</p>
-  </footer>
-    </div>
-    </body>
-    </html>
+    </footer>
+
+  </div>
+</body>
+</html>

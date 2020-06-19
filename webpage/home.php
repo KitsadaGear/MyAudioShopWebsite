@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('../database_php/user_server.php'); 
+    include('../database_php/server.php'); 
     
 ?>
 
@@ -33,7 +33,7 @@
             </button>
             <div class="dropdown-content">
               <a href="mic.php"><i class="fa fa-cog" aria-hidden="true"></i> Microphone</a>
-              <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Speaker</a>
+              <a href="speaker.php"><i class="fa fa-cog" aria-hidden="true"></i> Speaker</a>
               <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Power Mix</a>
               <a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Other</a>
             </div>
@@ -65,7 +65,7 @@
               runMyFunction();
             }
             ?>
-            <a class = "shopping_basket"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+            <a class = "shopping_basket" href = "shopping_basket.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
             <div class = "setting" id ="setting_bar">

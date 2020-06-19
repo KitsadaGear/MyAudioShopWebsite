@@ -1,6 +1,6 @@
 <?php 
     session_start();
-    include('user_server.php');
+    include('server.php');
 
     $errors = array();
 
@@ -17,16 +17,21 @@
         }
 
         if (count($errors) == 0) {
+
             $password = md5($password);
             $username_login = ucfirst($username);
             date_default_timezone_set('Asia/Bangkok');
             $dt = date("y-m-d H:i:s",time());
+
             $query = "SELECT * FROM user_login WHERE username = '$username' AND password = '$password' ";
-            $log = "INSERT INTO user_log (username , date_time) VALUES ('$username_login' , '$dt')" ; 
+            $log = "INSERT INTO user_log (username , date_time , permission) VALUES ('$username_login' , '$dt' , 'C')" ; 
+            $checkAdmin = ""; 
+
             $result = mysqli_query($conn, $query);
             $log_result = mysqli_query($conn , $log) ; 
-
+            $admin_result = mysqli_query($conn , $log) ; 
         
+            
 
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username_login;
