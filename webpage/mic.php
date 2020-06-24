@@ -1,48 +1,20 @@
 <?php 
     session_start();
     include('../database_php/server.php'); 
-    require_once ('../element/stock.php');
+    include('../element/stock.php');
+    include('../function/Basket.class.php');
 
-  if(array_key_exists('button_mic1', $_POST)) { 
-    button_mic1(); 
-  } 
- 
-  function button_mic1() { 
-    if(!isset($_SESSION['success'])){
-      echo "<script> alert ('You must login first');window.location='../webpage/mic.php' </script>" ; 
-    }
-  } 
+    if(array_key_exists('add', $_POST)) { 
+      add(); 
+    } 
+   
+    function add() { 
+      if(!isset($_SESSION['success'])){
+        echo "<script> alert ('You must login first');window.location='../webpage/mic.php' </script>" ; 
+        die();
+      }
+    } 
 
-  if (isset($_POST['add'])){
-    /// print_r($_POST['product_id']);
-    if(isset($_SESSION['cart'])){
-
-        $item_array_id = array_column($_SESSION['cart'], "product_id");
-
-        if(in_array($_POST['product_id'], $item_array_id)){
-            echo "<script>alert('Product is already added in the cart..!')</script>";
-            echo "<script>window.location = 'mic.php'</script>";
-        }else{
-
-            $count = count($_SESSION['cart']);
-            $item_array = array(
-                'product_id' => $_POST['product_id']
-            );
-
-            $_SESSION['cart'][$count] = $item_array;
-        }
-
-    }else{
-
-        $item_array = array(
-                'product_id' => $_POST['product_id']
-        );
-
-        // Create new session variable
-        $_SESSION['cart'][0] = $item_array;
-        print_r($_SESSION['cart']);
-    }
-}
 
 ?>
 
@@ -77,18 +49,35 @@
   </header>
 
   <div class = "mic_container">
-  <form class = product method = post>
-    <?php $sql = "SELECT * FROM stock WHERE s_type = 'Mic' " ; 
-          $result = mysqli_query($conn, $sql);
-          while ($row = mysqli_fetch_assoc($result)){
-            component($row['s_id'] , $row['s_name'] ,$row['s_cost'] ,$row['s_img'],$row['s_description'] );
-          }
+    <div class="row text-center py-5">
+    <?php $sql =  $conn->query("SELECT * FROM stock WHERE s_type = 'Mic' ") ; 
+          if($sql->num_rows > 0){
+          while ($row = $sql->fetch_assoc()){
+            ?>
+            <div class="card">
+              <form action="mic.php" method="post">
+                <div class = "card_column">
+                  <div class = "card_show">
+                    <img src= <?php echo $row['s_img'] ;?>>
+                    <h1><?php echo $row['s_id'] ; echo " " ;  echo $row['s_name'];?></h1>
+                    <p class="price"><?php echo $row['s_cost'] ;?> Baht</p>
+                    <p><?php echo $row['s_description'] ;?></p>
+                    <a class="btn btn-warning my-3" href="../function/BasketAction.php?action=addToBasket&s_id=<?php echo $row["s_id"]; ?>">Add to basket</a>
+                   
+                  </div>
+                </div>
+              </form>
+            </div>
+            <?php } }else{ ?>
+        <p>Product(s) not found.....</p>
+        <?php } ?>
     
-    ?>
-    </form>
+    </div>
   </div>
 
-  
+  <footer>
+      <p>Copyright by Korrakot Triwichain</p>
+  </footer>
 
         
 </div>

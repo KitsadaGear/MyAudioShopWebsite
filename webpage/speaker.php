@@ -1,6 +1,21 @@
 <?php 
     session_start();
     include('../database_php/server.php'); 
+    include('../element/stock.php');
+    include('../function/Basket.class.php');
+
+    if(array_key_exists('add', $_POST)) { 
+      add(); 
+    } 
+   
+    function add() { 
+      if(!isset($_SESSION['success'])){
+        echo "<script> alert ('You must login first');window.location='../webpage/speaker.php' </script>" ; 
+        die();
+      }
+    } 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +31,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
     <link rel="stylesheet" href="../css/speaker-style.css"media = "screen,projection">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" media="screen,projection">
+
     
 </head>
 <body>
@@ -27,47 +43,43 @@
     <div class="clearfix"></div>
 
   <header class = "header">
-    <div class ="mic_header">
-      <h1>Speaker</h1>
+    <div class ="speaker_header">
+      <h1>speaker</h1>
     </div>
   </header>
 
-  <section class = "product">
-
-  <div class="card">
-      <div class = "card_column">
-        <div class = "card1">
-         <img src="../img/TOA_F-1300BT.jpg" alt="TOA_F-1300BT">
-          <h1>K&M21070</h1>
-          <p class="price">5157 Baht</p>
-          <p>High efficiency, wide range, and can be installed in a manner ideal for the location and intended application.</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class = "card_column">
-      <div class = "card2">
-         <img src="../img/YAMAHA_VXS8.jpg" alt="YAMAHA_VXS8">
-          <h1>YAMAHA_VXS8</h1>
-          <p class="price">18990 Baht</p>
-          <p>8 inch loudspeaker, cone 0.75 ″ soft dome, with 180 watts (MAX) rms, 8 ohms, frequency range (-10dB). 51 Hz - 20 kHz</p>
-          <p><button>Add to Cart</button></p>
-        </div>
-        </div>
-      </div>
-
-
-    </div>
-    </div>
-
+  <div class = "speaker_container">
+    <div class="row text-center py-5">
+    <?php $sql =  $conn->query("SELECT * FROM stock WHERE s_type = 'speaker' ") ; 
+          if($sql->num_rows > 0){
+          while ($row = $sql->fetch_assoc()){
+            ?>
+            <div class="card">
+              <form action="speaker.php" method="post">
+                <div class = "card_column">
+                  <div class = "card_show">
+                    <img src= <?php echo $row['s_img'] ;?>>
+                    <h1><?php echo $row['s_id'] ; echo " " ;  echo $row['s_name'];?></h1>
+                    <p class="price"><?php echo $row['s_cost'] ;?> Baht</p>
+                    <p><?php echo $row['s_description'] ;?></p>
+                    <a class="btn btn-warning my-3" href="../function/BasketAction.php?action=addToBasket&s_id=<?php echo $row["s_id"]; ?>">Add to basket</a>
+                   
+                  </div>
+                </div>
+              </form>
+            </div>
+            <?php } }else{ ?>
+        <p>Product(s) not found.....</p>
+        <?php } ?>
     
-    
+    </div>
+  </div>
 
-  </section>
-    
+  <footer>
+      <p>Copyright by Korrakot Triwichain</p>
+  </footer>
 
+        
 </div>
 </body>
 </html>

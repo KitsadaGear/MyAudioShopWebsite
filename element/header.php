@@ -1,3 +1,12 @@
+<?php
+// Initialize shopping cart class 
+require_once '../function/Basket.class.php'; 
+
+$basket = new Basket; 
+ 
+// Include the database config file 
+require_once '../database_php/server.php'; 
+?>
 <div class="menubar">
       <a class = menubar_logo><i class="fa fa-headphones" aria-hidden="true"></i> Audio Shop</a>  
       <div class = "menubar-left">
@@ -19,15 +28,14 @@
               <i class="fa fa-caret-down"></i>
             </button>
             <div class="dropdown-content">
-              <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Deposit Payment</a>
-              <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Full Payment</a>
+              <a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i> Payment</a>
               <a href="#"><i class="fa fa-car" aria-hidden="true"></i> Delivery</a>
-              <a href="#"><i class="fa fa-wrench" aria-hidden="true"></i></i> Installation work</a>
             </div>
           </div>  
             <a class = "about"href="about.php"><i class="fa fa-user" aria-hidden="true"></i> About us</a>
-            <a class = "contact" href="contact.php"><i class="fa fa-volume-control-phone" aria-hidden="true"></i> Contact</a>
         </div>
+            
+
         <?php if (isset($_SESSION['success'])) : ?>
 
           <div class = "menubar-rights">
@@ -35,18 +43,22 @@
             <?php
             function runMyFunction() {
               unset($_SESSION['success']) ;
+
               echo "<script> alert ('Logout Success');window.location='home.php' </script>" ;  
+              session_destroy();
             }
             if (isset($_GET['logout'])) {
               runMyFunction();
             }
             ?>
-            <a class = "shopping_basket" href = "shopping_basket.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+            <a class = "shopping_basket" href = "shopping_basket.php"><i class="fa fa-shopping-basket" aria-hidden="true"></i>
+            <span id="basket_count" class="text-warning bg-light"> <?php echo ($basket->total_items() > 0)?$basket->total_items().' Items':'Empty'; ?></span>
+                        </a>
             <?php echo '<a>Welcome ' . $_SESSION['username']. '</a>'; ?>
 
             <div class = "setting" id ="setting_bar">
               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-              <a href="profile.php"><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a> 
+              <a id = "profile_btn "onclick = "document.getElementById('id_profile').style.display='block' "><i class="fa fa-address-card" aria-hidden="true"></i> Profile</a> 
               <a id = "history_btn"><i class="fa fa-suitcase" aria-hidden="true"></i> Order history</a>
               <a id = "change_btn" onclick = "document.getElementById('id_change').style.display ='block'"><i class="fa fa-history" aria-hidden="true"></i> Change Password</a>
               <a id = "logout_btn" href ="home.php?logout=true" ><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Logout</a> 
@@ -176,8 +188,23 @@
         <div class="container_login" style="background-color:#f1f1f1">
           <button type="button" onclick="document.getElementById('id_change').style.display='none'" class="cancelbtn">Cancel</button>
         </div>
+      </div>     
+    </form> 
+  </div> 
 
-      </div> 
-     
-    </form>
+
+  <!-- The Modal -->
+  <div id="id_profile" class="modal">
+      <!-- Modal Content -->
+    <form class="modal-content animate" id = "profile_form" action = "../database_php/change_forget_database.php" method = "post">
+      <div class="imgcontainer">
+        <span onclick ="document.getElementById('id_profile').style.display='none';document.getElementById('login_form').reset();" ;
+      class="close" title="Close Modal" >&times;</span>
+      </div>
+  
+      <div class="containers">
+
+        
+      </div>     
+    </form> 
   </div> 

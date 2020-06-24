@@ -75,6 +75,10 @@ body {
   .menubar-right {
     float: none;
   }
+
+  .menubar-rights {
+    float: left;
+  }
 }
 
 /* The side navigation settng bar */
@@ -460,6 +464,7 @@ footer {
   padding: 20px;
   text-align: center;
   color: #fff;
+  
 }
 footer p {
   margin: 0;

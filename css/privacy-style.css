@@ -60,6 +60,10 @@ body {
   .menubar-right {
     float: none;
   }
+
+  .menubar-rights {
+    float: left;
+  }
 }
 
 /* The side navigation settng bar */
