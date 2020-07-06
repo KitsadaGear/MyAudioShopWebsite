@@ -1,7 +1,6 @@
 <?php 
     session_start();
     include('../database_php/server.php'); 
-    include('../element/stock.php');
     include('../function/Basket.class.php');
 
     if(array_key_exists('add', $_POST)) { 
@@ -58,11 +57,21 @@
               <form action="speaker.php" method="post">
                 <div class = "card_column">
                   <div class = "card_show">
-                    <img src= <?php echo $row['s_img'] ;?>>
-                    <h1><?php echo $row['s_id'] ; echo " " ;  echo $row['s_name'];?></h1>
-                    <p class="price"><?php echo $row['s_cost'] ;?> Baht</p>
-                    <p><?php echo $row['s_description'] ;?></p>
-                    <a class="btn btn-warning my-3" href="../function/BasketAction.php?action=addToBasket&s_id=<?php echo $row["s_id"]; ?>">Add to basket</a>
+                  <?php    
+                      if(!isset($_SESSION['success'])){ ?>
+                        <img src= <?php echo $row['s_img'] ;?>>
+                        <h1><?php echo $row['s_id'] ; echo " " ;  echo $row['s_name'];?></h1>
+                        <p class="price"><?php echo $row['s_cost'] ;?> Baht</p>
+                        <p><?php echo $row['s_description'] ;?></p>
+                        <p><a class = "warning">You must login to buy this product</a></p>
+                  <?php  }else{
+                    ?>
+                        <img src= <?php echo $row['s_img'] ;?>>
+                        <h1><?php echo $row['s_id'] ; echo " " ;  echo $row['s_name'];?></h1>
+                        <p class="price"><?php echo $row['s_cost'] ;?> Baht</p>
+                        <p><?php echo $row['s_description'] ;?></p>
+                        <button name = "add" ><a class="btn_warning" href="../function/BasketAction.php?action=addToBasket&s_id=<?php echo $row["s_id"]; ?>">Add to basket</a></button>
+                    <?php } ?>
                    
                   </div>
                 </div>

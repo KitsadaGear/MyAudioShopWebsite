@@ -37,7 +37,7 @@
             <p class="title">CEO &amp; Founder</p>
             <p>Contact me only 8.00 am - 6.00 pm</p>
             <p>Nicebenjawan06@gmail.com</p>
-            <p><button class="button"onclick="window.location.href='https://www.facebook.com/BPzii';">Contact</button></p>
+            <p><button class="button" onclick="window.open('https://www.facebook.com/BPzii');">Contact</button></p>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
             <p class="title">Programmer</p>
             <p>Contact me only 10.00 am - 11.00 pm</p>
             <p>Kitsada.sal@hotmail.com</p>
-            <p><button class="button" onclick="window.location.href='https://www.facebook.com/Gear.Bintaruban';">Contact</button></p>
+            <p><button class="button" onclick="window.open('https://www.facebook.com/Gear.Bintaruban');">Contact</button></p>
           </div>
         </div>
       </div>

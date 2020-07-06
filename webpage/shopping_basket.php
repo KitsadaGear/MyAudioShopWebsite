@@ -1,7 +1,6 @@
 <?php 
     session_start();
-    include('../database_php/server.php'); 
-    include('../element/stock.php');
+    include('../database_php/server.php');
 
     include('../function/Basket.class.php');
 
@@ -67,70 +66,81 @@
     <div class="clearfix"></div>
 
     <div class="container-fluid">
-    <div class="row px-5">
-        <div class="col-md-7">
-            <div class="shopping-basket">
-                <h6>My Shopping basket</h6>
+        <div class="row px-5">
+            <div class="col-md-7">
+                <div class="shopping-basket">
+                    <h6>My Shopping basket</h6>
 
-                <?php
-                if($basket->total_items() > 0){ 
-                                // Get basket items from session 
-                                $basketItems = $basket->contents(); 
-                                foreach($basketItems as $item){ 
+                    <?php
+                        if($basket->total_items() > 0){ 
+                            // Get basket items from session 
+                            $basketItems = $basket->contents(); 
+                            foreach($basketItems as $item){ 
                             ?>
-                       
-                            <div class="border rounded">
-                                <div class="row bg-white">
-                                    <div class="col-md-3 pl-0">
-                                        <img src=<?php echo $item["s_img"]; ?> alt="Image1" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h5 class="pt-2"><?php echo $item["s_name"]; echo "   " ;  echo $item["s_cost"]; echo" Baht"?></h5>
-                                        <p class="text-secondary"><?php echo $item["s_description"]; ?></p> 
-                                        <button type="submit" class="btn btn-danger mx-2" name="remove" onclick="return confirm('Are you sure?')?window.location.href='../function/BasketAction.php?action=removeBasketItem&s_id=<?php echo $item["rowid"]; ?>':false;">>Remove</button>
-                                    </div>
-                                    <div class="col-md-3 py-5">
-                                        <div>
-                                            <input type="text" readonly value="<?php echo $item["s_amount"]; ?>" class="form-control w-25 d-inline" onchange = "updateBasketItem(this, '<?php echo $item["rowid"]; ?>')"/>
+                                <div class="border rounded">
+                                    <div class="row bg-white">
+                                        <div class="col-md-3 pl-0">
+                                            <img src=<?php echo $item["s_img"]; ?> alt="Image1" class="img-fluid">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h5 class="pt-2"><?php echo $item["s_name"]; echo "   " ;  echo $item["s_cost"]; echo" Baht"?></h5>
+                                            <p class="text-secondary"><?php echo $item["s_description"]; ?></p> 
+                                            <button type="submit" class="btn btn-danger mx-2" name="remove" onclick="return confirm('Are you sure?')?window.location.href='../function/BasketAction.php?action=removeBasketItem&s_id=<?php echo $item["rowid"]; ?>':false;">Remove</button>
+                                        </div>
+                                        <div class="col-md-3 py-5">
+                                            <div>
+                                                <input type="text" readonly value="<?php echo $item["s_amount"]; ?>" class="form-control w-25 d-inline" onchange = "updateBasketItem(this, '<?php echo $item["rowid"]; ?>')"/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
                             <?php } }else{ ?>
                             <tr><td colspan="5"><p>Your Basket is empty.....</p></td>
                             <?php } ?>
                             
-            </div>
-         </div>   
-
-         
-
-        <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
-            <div class="pt-4">
-                <h6>PRICE DETAILS</h6>
-                <hr>
-                <div class="row price-details">
-                    <div class="col-md-6">      
-                           <h6><?php echo $basket->total_items().' Price';; ?></h6> 
-                        <h6>Delivery Charges</h6>
-                        <hr>
-                        <h6>Amount Payable</h6>
-                    </div>
-                    <div class="col-md-6">
-                        <h6>$<?php echo $basket->total().' Baht';; ?></h6>
-                        <h6 class="text-success">FREE</h6>
-                        <hr>
-                        <h6>$<?php echo $basket->total().' Baht';;?></h6>
-                    </div>
                 </div>
-            </div>
+            </div>   
+
+            <div class="col-md-4 offset-md-1 border rounded mt-5 bg-white h-25">
+                <div class="pt-4">
+                    <h6>PRICE DETAILS</h6>
+                    <hr>
+                    <div class="row price-details">
+                        <div class="col-md-6">      
+                           <h6><?php echo $basket->total_items().' Price';; ?></h6> 
+                            <h6>Delivery Charges</h6>
+                            <hr>
+                            <h6>Amount Payable</h6>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>$<?php echo $basket->total().' Baht';; ?></h6>
+                            <h6 class="text-success">FREE</h6>
+                            <hr>
+                            <h6>$<?php echo $basket->total().' Baht';;?></h6>
+                        <div class = "ConfirmOrder">
+                            <button type="button" id = "payment" class = "payment" onclick="document.getElementById('payment_popup').style.display='block'">ยืนยันรายการสั่งซื้อ</button>
+                        
+                
+                        
+                        </div>
+                    </div>
+                </div>                          
+            </div> 
         </div>
 
+        <!-- The Modal -->
+        <div id="payment_popup" class="modal">
+        <!-- Modal Content -->
+            <form class="modal-content animate" id = "payment_form" action = "../database_php/login_database.php" method = "post">
+                <div class="imgcontainer">
+                    <img src="../img/empty.png" alt="Avatar" class="avatar">
+                </div>   
+            </form>
+        </div> 
+        
     </div>
-    </div>  
 
-
+    
 
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

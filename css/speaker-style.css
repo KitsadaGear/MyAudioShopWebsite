@@ -266,10 +266,16 @@ span.psw {
 /* Extra styles for the cancel button */
 .cancelbtn2 {
   width: auto;
-  padding: 10px 18px;
+  padding: 20px 50px;
   background-color: #f44336;
 }
 
+.regis_btn {
+  float: right;
+  width: auto;
+  padding: 20px 50px;
+  background-color: #4caf51;
+}
 .container_signin .sign_btn {
   width: auto;
   padding: 10px 18px;
@@ -498,12 +504,17 @@ img.avatar2 {
   background-color: #4caf51;
   text-align: center;
   cursor: pointer;
-  width: 75%;
+  width: 25%;
   font-size: 18px;
 }
 
 .card button:hover {
   opacity: 0.7;
+}
+
+.card_show .btn_warning {
+  text-decoration: none;
+  color: white;
 }
 
 /*------------------ */
@@ -517,4 +528,9 @@ footer {
 }
 footer p {
   margin: 0;
+}
+
+.card_show a {
+  color: red;
+  font-size: 25px;
 }

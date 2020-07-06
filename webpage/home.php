@@ -1,6 +1,7 @@
 <?php 
     session_start();
     include('../database_php/server.php'); 
+
     
 ?>
 

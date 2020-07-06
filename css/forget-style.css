@@ -266,10 +266,16 @@ span.psw {
 /* Extra styles for the cancel button */
 .cancelbtn2 {
   width: auto;
-  padding: 10px 18px;
+  padding: 20px 50px;
   background-color: #f44336;
 }
 
+.regis_btn {
+  float: right;
+  width: auto;
+  padding: 20px 50px;
+  background-color: #4caf51;
+}
 /* Center the image and position the close button */
 .imgcontainer2 {
   text-align: center;

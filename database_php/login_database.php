@@ -23,24 +23,43 @@
             date_default_timezone_set('Asia/Bangkok');
             $dt = date("y-m-d H:i:s",time());
 
-            $query = "SELECT * FROM user_login WHERE username = '$username' AND password = '$password' ";
+            $query = "SELECT * FROM user_information WHERE username = '$username' AND password = '$password' ";
             $log = "INSERT INTO user_log (username , date_time , permission) VALUES ('$username_login' , '$dt' , 'C')" ; 
-            $checkAdmin = ""; 
+
+            $checkAdmin = "SELECT permission FROM user_information WHERE username = '$username' AND password = '$password' " ; 
 
             $result = mysqli_query($conn, $query);
             $log_result = mysqli_query($conn , $log) ; 
-            $admin_result = mysqli_query($conn , $log) ; 
+            $admin_result = mysqli_query($conn , $checkAdmin) ; 
         
             
 
             if (mysqli_num_rows($result) == 1) {
+                if($row = $result->fetch_assoc()){
+                    $_SESSION['username'] = $username_login;
+                    $_SESSION['success'] = "Success";
+
+                    $_SESSION['surname'] = $row["surname"] ; 
+                    $_SESSION['lastname'] = $row["lastname"] ; 
+                    $_SESSION['email'] = $row["email"] ; 
+                    $_SESSION['phonenumber'] = $row["phonenumber"] ; 
+                    $_SESSION['address'] = $row["address"] ; 
+                    $_SESSION['picture'] = base64_encode($row['image']) ;
+
+                    echo "<script> alert ('Your are now logged in Mr/Mrs ".$_SESSION['surname']." ".$_SESSION['lastname']."');window.location='../webpage/home.php' </script>" ; 
+                
+                    
+                }
+            }    
+            elseif(mysqli_num_rows($admin_result) == 1){
                 $_SESSION['username'] = $username_login;
                 $_SESSION['success'] = "Success";
-                echo "<script> alert ('Your are now logged in');window.location='../webpage/home.php' </script>" ; 
+                echo "<script> alert ('Your are now logged in admin');window.location='../webpage/admin.php' </script>" ; 
             }else {
                 array_push($errors, "Wrong Username or Password");
                 $_SESSION['error'] = "Wrong Username or Password!";
-                echo "<script> alert ('Wrong Username or Password!');window.location='../webpage/home.php' </script>" ;   
+                echo "<script> alert ('Wrong Username or Password!');</script>" ; 
+                header("Location:")  ;
             }
         } else {
             array_push($errors, "Username & Password is required");
